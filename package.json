@@ -2,9 +2,10 @@
   "name": "studbud",
   "version": "1.0.0",
   "description": "study web application",
-  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "prestart": "parcel build ./public/index.html",
+    "dev": "parcel serve ./public/index.html"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,13 @@
   },
   "homepage": "https://github.com/zchi0174/studbud#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "sass": "^1.50.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.4.1",
+    "autoprefixer": "^10.4.4",
+    "parcel": "^2.4.1",
+    "postcss": "^8.4.12"
   }
 }

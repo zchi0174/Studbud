@@ -1,0 +1,1 @@
+{"mappings":"AEAA","sources":["index.b46915db.css","public/scss/main.scss","public/scss/layout.scss"],"sourcesContent":["body {\n  background-color: red;\n}\n\n/*# sourceMappingURL=index.b46915db.css.map */\n","@import 'layout';\r\n@import 'typography';","body {\r\n    background-color: red;\r\n}"],"names":[],"version":3,"file":"index.b46915db.css.map"}

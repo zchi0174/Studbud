@@ -1,0 +1,54 @@
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/layout';
+@import 'components/buttons';
+@import 'components/navigation';
+@import 'components/task';
+@import 'components/kanban';
+@import 'components/timer';
+@import 'components/dictionary';
+
+
+.grid-container {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "nav nav nav"
+      "main main main"
+      "main main main";
+  }
+  
+  .nav {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "logo . nav-right";
+    grid-area: nav;
+  }
+  
+  .logo { grid-area: logo; }
+  
+  .nav-right { grid-area: nav-right; }
+  
+  .main {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      ". . ."
+      ". . music";
+    grid-area: main;
+  }
+  
+  .music { grid-area: music; }
+  
+  
