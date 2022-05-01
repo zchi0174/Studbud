@@ -1,3 +1,85 @@
-body {
-    background-color: red;
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+  .grid-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-auto-flow: row;
+    height: 100%;
+    grid-template-areas:
+      "nav nav nav"
+      "main main main"
+      "main main main"
+      "main main main";
+  }
+  
+  .bg {
+    // referenced from https://www.w3schools.com/howto/howto_css_full_page.asp
+    /* The image used */
+    background-image: url("../tokyo.jpg");
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .nav {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "logo . nav-right";
+    grid-area: nav;
+    align-items: baseline;
+    color: white;
+    margin: 0 20px;
+  }
+  
+  .logo { 
+    grid-area: logo; 
+    padding-left: 30px;
+  }
+  
+  .nav-right { grid-area: nav-right; }
+
+  .main {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      ". . ."
+      ". . music";
+    grid-area: main;
+  }
+  
+  .music { 
+    grid-area: music;
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    margin-left: 100px;
+   }
+
+   .slider {
+    border-radius: 10px;
+    background-color: white;
+    // border: 2px solid pink;
+    width: 250px;
+    height: 5px;
+    display: block;
+    margin: 0 auto; //centre bar
 }
+
+
+  

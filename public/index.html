@@ -5,29 +5,55 @@
     <meta name="viewport" content="width=device-width">
     <title>Home</title>
     <link href="scss/main.scss" rel="stylesheet" type="text/css">
-
   </head>
+
   <body>
-    <div class="grid-container">
-      <nav class="nav">
-        <div class="navbar">
+    <div class="bg">
+      <div class="grid-container">
+        <nav class="nav">
           <div class="logo">
-            <h1>Studbud</h1>
+            <h1>StudBud</h1>
           </div>
           <div class="nav-right">
             <ul>
-              <li><h3>Tasks</h3></li>
-              <li><h3>Timer</h3></li>
-              <li><h3><a href="dictionary.html">Dictionary</a></h3></li>
+              <div class="dropdown">
+                <li><h3>TASKS</h3></li>
+                <div class="dropdown-content">
+                  <a href="task.html">TASK LIST</a>
+                  <a href="kanban.html">KANBAN</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <li><h3>TIMER</h3></li>
+                <div class="dropdown-content">
+                  <a href="stopwatch.html">STOPWATCH</a>
+                  <a href="pomodoro.html">POMODORO</a>
+                </div>
+              </div>
+              <li><h3><a href="dictionary.html">DICTIONARY</a></h3></li>
             </ul>
           </div>
+        </nav>
+        <div class="main">
+          <div class="music">
+            <h2>ROAD</h2>
+            <p>WATARU FUJIWARA</p>
+            <div class="slider"></div>
+            <div class="button-container">
+              <div class="back">
+                <div class="bar"></div>
+                <div class="triangle-back"></div>
+              </div>
+              <div class="box pause"></div>
+              <div class="next">
+                <div class="triangle-next"></div>
+                <div class="bar"></div>
+              </div>
+            </div>
+          </div>
         </div>
-      </nav>
-      <div class="main">
-        <div class="music"></div>
       </div>
     </div>
-    
 
     <script src="script.js"></script>
   </body>

@@ -3,46 +3,58 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
+    <title>Home</title>
     <link href="/index.c74267d1.css" rel="stylesheet" type="text/css">
   </head>
+
   <body>
-    <form id="taskform">
-      <label for="task">Task:</label>
-      <input type="text" name="task" id="taskInput">
+    <div class="bg">
+      <div class="grid-container">
+        <nav class="nav">
+          <div class="logo">
+            <h1>StudBud</h1>
+          </div>
+          <div class="nav-right">
+            <ul>
+              <div class="dropdown">
+                <li><h3>TASKS</h3></li>
+                <div class="dropdown-content">
+                  <a href="/task.html">TASK LIST</a>
+                  <a href="/kanban.html">KANBAN</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <li><h3>TIMER</h3></li>
+                <div class="dropdown-content">
+                  <a href="/stopwatch.html">STOPWATCH</a>
+                  <a href="/pomodoro.html">POMODORO</a>
+                </div>
+              </div>
+              <li><h3><a href="/dictionary.html">DICTIONARY</a></h3></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="main">
+          <div class="music">
+            <h2>ROAD</h2>
+            <p>WATARU FUJIWARA</p>
+            <div class="slider"></div>
+            <div class="button-container">
+              <div class="back">
+                <div class="bar"></div>
+                <div class="triangle-back"></div>
+              </div>
+              <div class="box pause"></div>
+              <div class="next">
+                <div class="triangle-next"></div>
+                <div class="bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <br>
-    <!-- Date input -->
-      <label for="dueDate">Due Date: </label>
-      <input type="date" name="dueDate" id="dueDateInput">
-      <br>
-    <!-- Time input -->
-    <label for="completionTime">Completion Time: </label>
-      <input type="time" name="completionTime" id="completionTimeInput">
-
-      <br>
-
-    <label for="estimatedTime">Estimated completion time (in mins):</label>
-    <input type="number" name="estimatedTime" id="estimatedTimeInput">
-    <!-- Priority -->
-    <br>
-
-    <label for="priority">Task Priority:</label>
-    <select name="prority" id="priorityInput">
-      <option value="">Select one</option>
-      <option value="Low">Low</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High</option>
-    </select>
-
-    <br>
-
-      <button type="submit">Submit</button>
-    </form>
-    <ul id="tasklist">
-    </ul>
     <script src="/index.f3bd186e.js"></script>
-    <!-- Swap the scripts to see the working solution -->
-    <!-- <script src="solution.js"></script> -->
   </body>
 </html>
