@@ -549,6 +549,12 @@ table.tasklist th:last-child, table.tasklist td:last-child {
   margin-top: 30px;
 }
 
+.rating {
+  background-color: red;
+  border: 3px solid #fff;
+  border-radius: 10px;
+}
+
 #kanban {
   margin-top: -50px;
 }
@@ -624,6 +630,10 @@ table.tasklist th:last-child, table.tasklist td:last-child {
 
 .taskbox:hover {
   cursor: pointer;
+}
+
+#todo .kanban-data {
+  margin-right: -10px;
 }
 
 #stopwatch button, #pomodoro button {

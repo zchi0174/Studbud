@@ -197,7 +197,7 @@ function renderTask(task) {
     // Create HTML elements
     let item = document.createElement("li");
     item.setAttribute('data-id', task.id);
-    item.innerHTML = "<p>" + task.taskDescription + "</p>";
+    item.innerHTML = "<p>" + task.taskDescription + " | "  + task.dueDate + " | " + task.estimatedTime + " | " + task.priorityRating  + " | " + task.completionStatus + "</p>";
     tasklist.appendChild(item);
 
     // Clone task item to append and show on kanban board because one node cannot exist in multiple doms

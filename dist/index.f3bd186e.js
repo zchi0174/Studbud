@@ -1,5 +1,6 @@
 //NAVIGATION
 //hamburger nav toggle
+//referenced from https://dev.to/devggaurav/let-s-build-a-responsive-navbar-and-hamburger-menu-using-html-css-and-javascript-4gci
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 hamburger.addEventListener("click", mobileMenu);
@@ -140,7 +141,7 @@ function renderTask(task1) {
     // Create HTML elements
     let item = document.createElement("li");
     item.setAttribute('data-id', task1.id);
-    item.innerHTML = "<p>" + task1.taskDescription + "</p>";
+    item.innerHTML = "<p>" + task1.taskDescription + " | " + task1.dueDate + " | " + task1.estimatedTime + " | " + task1.priorityRating + " | " + task1.completionStatus + "</p>";
     tasklist.appendChild(item);
     // Clone task item to append and show on kanban board because one node cannot exist in multiple doms
     let itemClone = item.cloneNode(true);
