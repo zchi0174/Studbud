@@ -11,7 +11,7 @@
   position: relative;
 }
 
-nav a {
+nav p {
   text-decoration: none;
   color: white;
 }
@@ -31,7 +31,7 @@ nav a {
   background-color: white;
   border-radius: 15px;
   min-width: 120px;
-  padding: 8px 0;
+  padding: 8px 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -53,23 +53,28 @@ nav a {
   left: 50%; //line transitions from left
 }
 
-.dropdown-content a {
+.dropdown-content p {
   color: black;
-  padding: 8px 16px;
+  padding: 2px 20px;
   text-decoration: none;
   text-align: center;
   display: block;
 }
 
 //change text colour on hover
-.dropdown-content a:hover {
+.dropdown-content p:hover {
   color: pink;
+  cursor: pointer;
 }
 
 .dropdown:hover .dropdown-content {
   visibility: visible;
   transition: opacity 0.3s linear;
   opacity: 1;
+}
+
+#dictionary-page {
+  cursor: pointer;
 }
 
 //   .arrow {

@@ -1,0 +1,97 @@
+#kanban {
+    margin-top: -50px;
+}
+
+.kanban-board {
+    display: flex;
+    flex-direction: row;
+}
+
+.kanban-block, .kanban-data {
+    padding: 0.6rem;
+    width: 30.5%;
+    min-width: 12rem;
+    min-height: 2rem;
+    border-radius: 5px;
+    border: 3px solid white;
+    list-style: none;
+    background-color: rgb(33, 37, 83, 0.8);
+    margin-bottom: 10px; //create gap between rows
+}
+
+// set column colour
+// #todo {
+//     background-color: rgb(134, 26, 83, 0.8);
+//   }
+  
+// #inprogress {
+// background-color: rgb(173, 125, 197, 0.8);
+// /* display: none; */
+// }
+
+// #done {
+// background-color: rgb(33, 37, 83, 0.8);
+// /* display: none; */
+// }
+  
+#kanban h3 {
+    margin: 5px;
+    text-align: center;
+}
+
+/* the grid template columns the available space for however many columns there are. the minmax means columns have a minimum of 200px and maximum of the available width divided by however many columns there are. */
+.kanban-board {
+    display: grid; 
+    justify-items: center; //center columns
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    width: 55vw; 
+}
+
+
+#kanban input {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+// Change placeholder colour to white
+.kanban-block::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+  }
+
+// Alternate column colours
+.kanban-container:nth-child(3n+1) .kanban-block {
+    background-color: rgb(134, 26, 83, 0.8);
+}
+
+.kanban-container:nth-child(3n+2) .kanban-block {
+    background-color: rgb(173, 125, 197, 0.8);
+}
+
+.kanban-container:nth-child(3n+3) .kanban-block {
+    background-color: rgb(2, 53, 133, 0.8);
+}
+
+//kanban taskbox
+.taskbox {
+    background-color: white;
+    margin: 10px 0;
+    border-radius: 20px;
+    border: 3px solid white;
+    text-align: center;
+    color: black;
+}
+
+// cursor becomes pointer when hovering over task
+.taskbox:hover {
+    cursor: pointer;
+}

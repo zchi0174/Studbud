@@ -3,51 +3,241 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Home</title>
+    <title>StudBud</title>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="/public/images/favicon.ico">
+    <!-- INCLUDE SCSS -->
     <link href="scss/main.scss" rel="stylesheet" type="text/css">
+    <!-- INCLUDE FONT AWESOME ICONS -->
+    <script src="https://kit.fontawesome.com/86d7520a01.js" crossorigin="anonymous"></script>
+    <!-- INCLUDE JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
 
   <body>
+    <!-- BACKGROUND -->
     <div class="bg">
       <div class="grid-container">
+
+        <!-- NAV -->
         <nav class="nav">
+          <!-- Logo -->
           <div class="logo">
             <h1>StudBud</h1>
           </div>
+          <!-- Nav links -->
           <div class="nav-right">
-            <ul>
+            <ul class="nav-menu">
               <div class="dropdown">
-                <li><h3>TASKS</h3></li>
+                <li class="nav-item"><h3>TASKS</h3></li>
                 <div class="dropdown-content">
-                  <a href="task.html">TASK LIST</a>
-                  <a href="kanban.html">KANBAN</a>
+                  <p class="nav-link" id="tasklist-nav">TASK LIST</p>
+                  <p class="nav-link" id="kanban-nav">KANBAN</p>
                 </div>
               </div>
               <div class="dropdown">
-                <li><h3>TIMER</h3></li>
+                <li class="nav-item"><h3>TIMER</h3></li>
                 <div class="dropdown-content">
-                  <a href="stopwatch.html">STOPWATCH</a>
-                  <a href="pomodoro.html">POMODORO</a>
+                  <p class="nav-link" id="stopwatch-nav">STOPWATCH</p>
+                  <p class="nav-link" id="pomodoro-nav">POMODORO</p>
                 </div>
               </div>
-              <li><h3><a href="dictionary.html">DICTIONARY</a></h3></li>
+              <li class="nav-link" class="nav-item"><h3 id="dictionary-nav">DICTIONARY</h3></li>
             </ul>
           </div>
+          <!-- Hamburger nav -->
+          <div class="hamburger">
+            <span class="iconbar"></span>
+            <span class="iconbar"></span>
+            <span class="iconbar"></span>
+          </div>
         </nav>
+
+        <!-- MAIN CONTENT -->
         <div class="main">
-          <div class="music">
-            <h2>ROAD</h2>
-            <p>WATARU FUJIWARA</p>
-            <div class="slider"></div>
-            <div class="button-container">
-              <div class="back">
-                <div class="bar"></div>
-                <div class="triangle-back"></div>
+          <div class="content">
+
+            <!-- TASK LIST -->
+            <!-- Task list design was changed from a table only format into a combination of a table format for task detail input, and a separate section beneath to list out the inputted tasks. This was done so that it is easier to view and find specific tasks with a less crowded aesthetic. -->
+            <section hidden id="task">
+              <table class="tasklist">
+                <form id="taskform">
+                  <thead>
+                    <tr>
+                      <!-- Label names -->
+                      <th><label for="task">TASK</label></th>
+                      <th><label for="dueDate">DUE DATE</label></th>
+                      <th><label for="estimatedTime">EST. COMPLETION TIME</label></th>
+                      <th><label for="priority">PRIORITY</label></th>
+                      <th><label for="completionStatus">STATUS</label></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <!-- User inputs -->
+                        <input type="text" name="task" id="taskInput" required>
+                      </td>
+                      <td><input type="date" name="dueDate" id="dueDateInput" required></td>
+                      <td><input type="time" name="estimatedTime" id="estimatedTimeInput" required></td>
+                      <td>
+                        <select name="priority" id="priorityInput" required>
+                          <option value="">Select one</option>
+                          <option value="Low">Low</option>
+                          <option value="Medium">Medium</option>
+                          <option value="High">High</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select name="completionStatus" id="completionStatusInput" required>
+                          <option value="">Select one</option>
+                          <option value="inProgress">In Progress</option>
+                          <option value="completed">Completed</option>
+                        <button id="submitButton"><i class="fa-solid fa-circle-check"></i></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </form>
+              </table>
+              <!-- <button id="addButton" onclick="addRow();"><i class="fa-solid fa-circle-plus"></i></button> -->
+              <br>
+              <!-- Task display box -->
+              <div id="tasklist">
+                <p id="emptyList">You have not added any tasks yet.</p>
+                <ul></ul>
               </div>
-              <div class="box pause"></div>
-              <div class="next">
-                <div class="triangle-next"></div>
-                <div class="bar"></div>
+           </section>
+
+
+            <!-- KANBAN BOARD -->
+            <section hidden id="kanban">
+              <button id="addButton"><i class="fa-solid fa-circle-plus"></i></button> 
+              <div class="kanban-board" id="kanban-board">
+                <!-- Kanban columns -->
+                <div class="kanban-container">
+                  <!-- Allows users to change column name with input tag-->
+                  <input type="text" name="todo" class="kanban-block" placeholder="to do" ondrop="drop(event)" ondragover="allowDrop(event)">
+                  <div class="kanban-data" id="todo"></div>
+                </div>
+                <div class="kanban-container">
+                  <input type="text" name="inprogress" class="kanban-block" id="inprogress" placeholder="in progress" ondrop="drop(event)" ondragover="allowDrop(event)">
+                  <div class="kanban-data"></div>
+                </div>
+                <div class="kanban-container">
+                  <input type="text" name="done" class="kanban-block" id="done" placeholder="completed" ondrop="drop(event)" ondragover="allowDrop(event)">
+                  <div class="kanban-data"></div>
+                </div>
+              </div>
+            </section>
+
+
+            <!-- STOPWATCH -->          
+            <section hidden id="stopwatch">
+              <!-- Time display -->
+              <h2>
+                <span id="hour">00</span> :
+                <span id="min">00</span> :
+                <span id="sec">00</span> :
+                <span id="milisec">00</span>
+              </h2>
+              <!-- Button controls -->
+              <div class="button-container">
+                <button><h3 onclick="startStop();" id="start">START</h3></button>
+                <button><h3 onclick="reset();" id="reset"><i class="fa-solid fa-arrow-rotate-left"></i></h3></button>
+              </div>
+            </section>
+            
+
+            <!-- POMODORO -->
+            <section hidden id="pomodoro">
+              <div class="timer">
+                  <div class="timer__clock">
+                      <!-- Mode selection -->
+                      <div class="options">
+                        <button class="options__work"><h3>POMODORO</h3></button>
+                        <button class="options__longbreak"><h3>LONG BREAK</h3></button>
+                        <button class="options__shortbreak"><h3>SHORT BREAK</h3></button>
+                      </div>
+                      <!-- Time display -->
+                      <h2 class="timer__time">25:00</h2>
+                      <!-- Button controls -->
+                      <div class="timer__buttons">
+                        <button class="timer__start"><h3>START</h3></button>
+                        <button class="timer__stop"><h3>STOP</h3></button>
+                        <button class="timer__reset"><i class="fa-solid fa-arrow-rotate-left"></button>
+                      </div>
+                  </div>
+              </div>
+            </section>
+
+
+            <!-- DICTIONARY -->
+            <section hidden id="dictionary">
+              <div class="wrapper">
+                <h2>DICTIONARY</h2>
+                <!-- Search bar -->
+                <div class="search">
+                  <input type="text" placeholder="Search a word" required spellcheck="false">
+                  <i class="fas fa-search"></i>
+                  <i id="cross" class="fa-solid fa-xmark"></i>
+                </div>
+                <p class="info-text">Type any existing word and press enter to get meaning, example, synonyms, etc.</p>
+                <!-- Dictionary content -->
+                <ul>
+                  <li class="word">
+                    <div class="word-details">
+                      <p>__</p>
+                      <span>_ _</span>
+                      <i class="fas fa-volume-up"></i>
+                    </div>
+                  </li>
+                  <div class="search-results">
+                    <li class="meaning">
+                      <div class="word-details">
+                        <p>Definition</p>
+                        <span>___</span>
+                      </div>
+                    </li>
+                    <li class="synonyms">
+                      <div class="word-details">
+                        <p>Synonyms</p>
+                        <div class="syn-list"></div>
+                      </div>
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </section>
+          </div>  
+
+
+          <!-- MUSIC -->
+          <div class="music">
+            <!-- container for music player -->
+            <div class="player"> 
+              <!-- Song details -->
+              <div class="details">
+                <h2 class="track-name">Track Name</h2>
+                <p class="track-artist">Track Artist</p>
+              </div>
+              <!-- Seek slider -->
+              <div class="slider_container">
+                <div class="current-time">00:00</div>
+                <input type="range" min="1" max="100"
+                  value="0" class="seek-slider" onchange="seekTo()">
+                <div class="total-duration">00:00</div>
+              </div>
+              <!-- Music control buttons -->
+              <div class="button-container">
+                <div class="back" onclick="prevTrack()">
+                  <div class="bar"></div>
+                  <div class="triangle-back"></div>
+                </div>
+                <div class="box" onclick="playpauseTrack()"></div>
+                <div class="next" onclick="nextTrack()">
+                  <div class="triangle-next"></div>
+                  <div class="bar"></div>
+                </div>
               </div>
             </div>
           </div>

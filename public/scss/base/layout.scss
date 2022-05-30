@@ -1,84 +1,277 @@
 body, html {
     height: 100%;
     margin: 0;
+}
+
+.grid-container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-auto-flow: row;
+  height: 100%;
+  grid-template-areas:
+    "nav nav nav"
+    "main main main"
+    "main main main"
+    "main main main";
+}
+
+.bg {
+  // referenced from https://www.w3schools.com/howto/howto_css_full_page.asp
+  /* The image used */
+  background-image: url("../images/tokyo.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nav {  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "logo . nav-right";
+  grid-area: nav;
+  align-items: baseline;
+  color: white;
+  margin: 0 20px;
+  z-index: 2; //place on top of content
+}
+
+.logo { 
+  grid-area: logo; 
+  padding-left: 30px;
+  z-index: 99;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.nav-right { grid-area: nav-right; }
+
+//hide hamburger nav
+.hamburger {
+  display: none;
+}
+
+//hamburger nav icon
+.iconbar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
+
+#dictionary-nav {
+  cursor: pointer;
+}
+
+.main {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 1fr auto;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . ."
+    ". content ."
+    ". music music";
+  grid-area: main;
+  text-transform: uppercase;
+}
+
+.content { 
+  grid-area: content;
+  //centre content
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1; //place content in front of music player
   }
 
-  .grid-container {  display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.5fr 1fr 1fr 1fr;
-    gap: 1px 1px;
-    grid-auto-flow: row;
-    height: 100%;
-    grid-template-areas:
-      "nav nav nav"
-      "main main main"
-      "main main main"
-      "main main main";
-  }
+.music { 
+  grid-area: music;
+  text-align: center;
+  color: white;
+  margin: 30px;
   
-  .bg {
-    // referenced from https://www.w3schools.com/howto/howto_css_full_page.asp
-    /* The image used */
-    background-image: url("../tokyo.jpg");
-  
-    /* Full height */
-    height: 100%; 
-  
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  .nav {  
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "logo . nav-right";
-    grid-area: nav;
-    align-items: baseline;
-    color: white;
-    margin: 0 20px;
-  }
-  
-  .logo { 
-    grid-area: logo; 
-    padding-left: 30px;
-  }
-  
-  .nav-right { grid-area: nav-right; }
+  // fix to bottom right of screen
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 0; //place music behind content
 
-  .main {  display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      ". . ."
-      ". . ."
-      ". . music";
-    grid-area: main;
-  }
-  
-  .music { 
-    grid-area: music;
-    text-align: center;
-    color: white;
-    margin-top: 40px;
-    margin-left: 100px;
-   }
+  // I chose not to use this method to place the music player on the bottom right of screen as it causes the page to extend down and overflow
+  // // align music player to right of screen
+  // display: flex;
+  // justify-content: flex-end;
+}
 
-   .slider {
-    border-radius: 10px;
-    background-color: white;
-    // border: 2px solid pink;
-    width: 250px;
-    height: 5px;
+
+   //responsive
+
+@media (max-width: 768px) {
+  
+  //move music player to bottom centre of screen
+  .music {
+    grid-area: auto;
     display: block;
-    margin: 0 auto; //centre bar
+    margin: 30px auto;
+    padding: 30px;
+    right: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+  }
+
+  //centre logo
+  .logo h1{
+    text-align: center;
+  }
+
+  //hamburger nav
+  //referenced from https://dev.to/devggaurav/let-s-build-a-responsive-navbar-and-hamburger-menu-using-html-css-and-javascript-4gci
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+
+  //centre logo
+  .nav .logo {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-item {
+    margin-left: 5rem;
+  }
+
+  //position and resize nav menu with links
+  .nav-menu {
+    position: fixed;
+    left: -120%; //hides nav to the side when not clicked
+    top: 5rem;
+    flex-direction: column;
+    background-color: #fff;
+    color: black;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  }
+
+  //shows nav when harmbuger icon is clicked
+  .nav-menu.active {
+    left: 0;
+    padding: 0;
+  }
+
+  //centre nav links
+  .nav-item {
+    margin: 2.5rem 0;
+    right: 40px;
+  }
+
+  //style task and timer navs
+  .nav li:nth-child(1), .nav li:nth-child(2) {
+    margin-bottom: 0;
+    text-decoration: underline;
+  }
+
+  //centre dictionary nav 
+  .nav li:nth-child(3) {
+    margin: 20px 0;
+  }
+
+  //change font size of nav links
+  .nav-link {
+    font-size: 14px;
+  }
+
+  //change link text colour on hover
+  .nav-link:hover{
+    color: pink;
+    cursor: pointer;
+  }
+
+  //positions dropdown content (nav links) in centre
+  .nav .dropdown-content {
+    all: unset;
+    width: 100vw;
+    position: relative;
+    transform: translateX(-50%);
+  }
+
+  //shows hambuger nav icon
+  .hamburger {
+    display: block;
+  }
+
+  //turn hamburger icon into cross when clicked
+  .hamburger.active .iconbar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .iconbar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .iconbar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  //scale task list to fit screen size
+  #task {
+    width: 90vw;
+    height: auto;
+
+    //allows horizontal scroll on overflow of table
+    //this is to avoid resizing the input table as the font would be too small 
+    overflow-x: auto; 
+  }
+
+  //allows vertical scroll on overflow of kanban columns
+  #kanban {
+    height: 50vh; //height of kanban before overflow happens
+    overflow-y: auto; 
+  }
+
+  //resize and position timer components 
+  #stopwatch, #pomodoro {
+    transform: scale(0.5);
+    margin-top: -40px;
+  }
+
+  //resize content div with window size to avoid unnecessary overflow and obstruction of other elements
+  .content {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  //resize and position dictionary
+  #dictionary {
+    transform: scale(0.7);
+    margin-top: -70px;
+  }
+
 }
 
 

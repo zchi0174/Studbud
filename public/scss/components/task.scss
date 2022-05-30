@@ -1,0 +1,141 @@
+input {
+    width: 100px; //adjust input textbox size
+    //when not in edit mode, remove border and background of input boxes
+    // background-color: transparent;
+    // border: none;
+}
+
+// rounded table border
+table.tasklist { 
+    border: 3px solid white;
+    background-color: rgb(33, 37, 83, 0.8);
+    border-radius: 13px; 
+    border-spacing: 0;
+    text-align: center;
+    }
+
+table.tasklist td, th { 
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+    padding: 10px 20px; //pads each table cell
+    color: white;
+    font-weight: 400;
+}
+
+//first column of table body
+table.tasklist tr > td:first-child {
+    display: inline-flex;
+    flex-wrap: nowrap; //set edit button and task name input to be on one row
+    align-items: center;
+    gap: 5px;
+}
+
+//last column of table body
+table.tasklist tr > td:last-child {
+    display: inline-flex;
+    flex-wrap: nowrap; //set edit button and task name input to be on one row
+    align-items: center;
+    gap: 5px;
+}
+
+table.tasklist tr:last-child > td {
+    border-bottom: none; //deletes extra border in bottom row
+    }
+
+table.tasklist th:last-child {
+    border-right: none; //deletes extra right border in last column of header
+    }
+
+table.tasklist td:last-child {
+    border-right: none; //deletes extra right border in last column of each row
+    }
+
+//reset button style
+#delButton, #editButton {
+    background: none;
+    color: white;
+	border: none;
+	padding-left: 0px;
+    margin-left: -5px;
+    font-size: 20px;
+    cursor: pointer; //curser becomes pointer on hover to show that button is clickable
+    }
+
+// #editButton {
+//     background: none;
+//     color: white;
+//     border: none;
+//     margin-left: 15px;
+//     font-size: 20px;
+//     cursor: pointer; //curser becomes pointer on hover to show that button is clickable
+//     }
+
+#submitButton {
+    background: none;
+    color: white;
+    border: none;
+    padding-right: 0px;
+    margin-right: -5px;
+    font-size: 20px;
+    cursor: pointer; //curser becomes pointer on hover to show that button is clickable
+    }
+
+#addButton {
+    background: none;
+    color: white;
+    border: none;
+    // padding-left: 0px;
+    // margin-left: -5px;
+    font-size: 30px;
+    cursor: pointer; //curser becomes pointer on hover to show that button is clickable
+    display: block;
+    margin: 10px auto;
+    }
+
+#tasklist {
+    text-align: center;
+    background-color: rgb(33, 37, 83, 0.8);
+    border-radius: 13px;
+    border: 3px solid white;
+    padding: 10px 0;
+}
+
+#tasklist * {
+    list-style: none; //gets rid of bullet points in list
+}
+
+// display list of entered tasks in rows 
+#tasklist ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap; //move new task to next row when there's no space in row
+}
+
+// position delete button in top right corner of task
+#tasklist ul * {
+    display: flex;
+    flex-direction: row;
+}
+
+// style task boxes
+#tasklist ul p {
+    background-color: rgb(221, 36, 117, 0.4);
+    padding: 10px 20px;
+    border-radius: 13px;
+    border: 3px solid white;
+}
+
+// delete task button
+#tasklist ul button {
+    background: none;
+    color: white;
+	border: none;
+    font-size: 25px;
+    margin-left: -20px;
+    cursor: pointer;
+}
+
+#emptyList {
+    margin-top: 30px;
+}

@@ -1,0 +1,206 @@
+
+//dictionary container
+.wrapper{
+  width: 420px;
+  border-radius: 7px;
+  background: rgb(33, 37, 83, 0.8);
+  border: 3px solid white;
+  padding: 25px 28px 38px;
+  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
+  margin-top: -20px; //position dictionary further up the page
+}
+
+//dictionary title
+.wrapper header{
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+
+//search box
+.wrapper .search{
+  position: relative;
+  margin: 20px 0 22px;
+}
+
+//search box input
+.search input{
+  height: 53px;
+  width: 100%;
+  box-sizing: border-box; //make search bar the width relative to dictionary box border
+  outline: none;
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 0 42px;
+  border: 1px solid #999;
+}
+
+//search box input when selected
+.search input:focus{
+  padding: 0 41px;
+  border: 2px solid grey;
+}
+
+//search box placeholder text
+.search input::placeholder{
+  color: #B8B8B8;
+  font-size: 14px;
+}
+
+//search box icons position
+.search :where(.fa-search, .fa-xmark){
+  position: absolute;
+  top: 50%;
+  color: #999;
+  transform: translateY(-50%);
+}
+
+//search icon
+.search .fa-search {
+  left: 18px;
+  pointer-events: none;
+  font-size: 16px;
+}
+
+//search icon colour changes to pink when search box is selected
+.search input:focus ~ .fa-search{
+  color: rgb(221, 36, 117);
+}
+
+//hides cross icon on click
+.search .fa-xmark{
+  right: 15px; //pads icon on the right
+  cursor: pointer; //changes cursor to pointer
+  font-size: 18px;
+  display: none; //hides cross icon
+}
+
+//cross icon colour changes to pink on hover
+.search .fa-xmark:hover {
+  color: rgb(221, 36, 117);
+}
+
+//displays cross icon when a valid input is entered in search box 
+.search input:valid ~ .fa-xmark{
+  display: block;
+}
+
+//hint description for user input
+.wrapper .info-text{
+  font-size: 13px;
+  color: #9A9A9A;
+  margin: -3px 0 -10px;
+}
+
+//hides hint when word is searched
+.wrapper.active .info-text{
+  display: none;
+}
+
+.info-text span{
+  font-weight: 500;
+}
+
+//list containing elements of dictionary
+.wrapper ul{
+  height: 0;
+  opacity: 0;
+  padding-right: 1px;
+  overflow-y: hidden;
+  transition: all 0.2s ease;
+  margin: 0;
+  padding: 0;
+}
+
+//displays list when word is searched
+.wrapper.active ul{
+  opacity: 1;
+  height: auto; //height of dictionary box fits search-results when word is searched
+}
+
+//styles elements in list
+.wrapper ul li{
+  display: flex;
+  list-style: none;
+  margin-bottom: 14px;
+  align-items: center;
+  padding-bottom: 17px;
+//   border-bottom: 1px solid #D9D9D9; // line between each element in list
+  justify-content: space-between;
+}
+
+//gets rid of space at bottom of search box
+.wrapper ul li:last-child{
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+//searched word 
+.wrapper ul .word p{
+  font-size: 22px;
+  font-weight: 500;
+  margin: 5px 12px;
+}
+
+// word pronunciation
+.wrapper ul .word span{
+    font-size: 12px;
+    color: #989898;
+    margin: 0 12px;
+}
+
+//definition and synonym titles
+.wrapper ul .search-results p {
+  margin: 5px 0;
+}
+
+//sound icon
+.wrapper ul .word i{
+  color: #999;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+//definiton and synonym results
+.wrapper ul .search-results{
+  max-height: fit-content;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column; //display meaning and synonyms in column
+}
+
+.wrapper ul .search-results::-webkit-scrollbar{
+  width: 0px;
+}
+
+// search results details (definitions and synonyms)
+.search-results li .word-details{
+  padding-left: 10px;
+  border-radius: 4px 0 0 4px;
+  border-left: 3px solid rgb(221, 36, 117, 0.4);
+}
+
+//definition and synonym titles
+.search-results li p{
+  font-size: 16px;
+  font-weight: 500;
+}
+
+//definition and synonym results
+.search-results li span{
+  font-size: 12px;
+  color: #7E7E7E;
+}
+
+//wrap synonyms list
+.search-results .synonyms .list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+//selectable synonym results
+.search-results .synonyms span{
+  cursor: pointer;
+  margin-right: 5px;
+  text-decoration: underline;
+}

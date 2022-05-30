@@ -1,0 +1,75 @@
+ //reset button style
+#stopwatch button, #pomodoro button{
+        background: none;
+        color: white;
+        border: none;
+        cursor: pointer; //curser becomes pointer on hover to show that button is clickable
+        padding: 0;
+}
+
+// style stopwatch start button and pomodoro buttons except reset button
+#start, #pomodoro button:not(.timer__reset) {
+    border: 3px solid white;
+    border-radius: 100px;
+    background-color: rgb(33, 37, 83, 0.4);
+    padding: 15px 50px;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+// reset button
+#reset, .timer__reset {
+    font-size: 40px;
+}
+
+// put stopwatch timer numbers in single line
+#stopwatch h2{
+    font-size: 80px;
+    white-space: nowrap;
+    margin: 100px 0 50px;
+}
+
+#pomodoro h2 {
+    font-size: 80px;
+    margin: 40px 0;
+}
+
+//remove margin on timer buttons
+#stopwatch h3, #pomodoro h3 {
+    margin: 0;
+}
+
+// position stopwatch buttons with flexbox
+#stopwatch .button-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin: 0;
+    padding-left: 60px; //pads buttons on the left to centre startstop button 
+}
+
+// position pomodoro option buttons with flexbox
+#pomodoro .options {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 40px;
+    gap: 15px;
+}
+
+// unwrap button text
+.options__longbreak, .options__shortbreak {
+    white-space: nowrap;
+}
+
+.timer__buttons, .timer__time {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin: 0;
+}
+
+.timer__buttons {
+    gap: 15px;
+    padding-left: 60px; //pads buttons on the left to centre startstop button 
+}
