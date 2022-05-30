@@ -1,3 +1,4 @@
+//reset list style for nav links and position nav links with flexbox
 .nav ul {
   list-style-type: none;
   display: flex;
@@ -6,11 +7,13 @@
   text-align: center;
 }
 
+//position nav text
 .nav li {
   margin-left: 80px;
   position: relative;
 }
 
+//style nav text
 nav p {
   text-decoration: none;
   color: white;
@@ -22,6 +25,7 @@ nav p {
   display: inline-block;
 }
 
+//dropdown content that appears when dropdown trigger text is clicked
 .dropdown-content {
   visibility: hidden;
   opacity: 0;
@@ -67,21 +71,14 @@ nav p {
   cursor: pointer;
 }
 
+//make dropdown content visible on hover
 .dropdown:hover .dropdown-content {
   visibility: visible;
   transition: opacity 0.3s linear;
   opacity: 1;
 }
 
+//make cursor into pointer for dictionary nav link
 #dictionary-page {
   cursor: pointer;
 }
-
-//   .arrow {
-//     border: solid white;
-//     border-width: 0 3px 3px 0;
-//     display: inline-block;
-//     padding: 3px;
-//     transform: rotate(45deg);
-//     -webkit-transform: rotate(45deg);
-//     }

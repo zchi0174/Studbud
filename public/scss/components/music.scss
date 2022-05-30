@@ -1,4 +1,4 @@
-// Center song details
+//center song details
 .details {
     display: flex;
     align-items: center;
@@ -6,7 +6,7 @@
     justify-content: center;
   }
 
-// Play button
+//play button
 .box {
     width: 20px;
     height: 20px;
@@ -18,14 +18,14 @@
     transition: all 100ms ease-in-out;
 }
 
-// Pause button
+//pause button
 .pause {
     border-style: double;
     border-width: 0px 0px 0px 14px;
     margin-left: 5px;
 }
 
-// Previous and next button elements
+//previous and next button elements
 .triangle-next {
     width: 20px;
     height: 20px;
@@ -52,17 +52,17 @@
     margin: 0 -7px;
 }
 
-// Previous button
+//previous button
 .back {
     display: inline-flex;
 }
 
-// Next button
+//next button
 .next {
     display: inline-flex;
 }
 
-// Container to align play/pause, back and next buttons
+//container to align play/pause, back and next buttons
 .button-container {
     display: inline-flex;
     // justify-content: space-between;
@@ -71,14 +71,14 @@
     margin-top: 15px;
 }
 
-// Container to centre slider
+//container to centre slider
 .slider_container {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  // Customise slider bar
+  //customise slider bar
 .seek-slider {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -91,7 +91,7 @@
     transition: opacity 0.2s;
   }
     
-  // Customise slider circle
+  //customise slider circle
   .seek-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -103,12 +103,12 @@
     border-radius: 50%;
   }
 
-  // Change mouse cursor to a pointer on hover
+  //change mouse cursor to a pointer on hover
   .next, .back, .box, .pause {
     cursor: pointer;
   }
 
-  // Create gap between time display and slider
+  //create gap between time display and slider
   .current-time, .total-duration {
     padding: 0 10px; 
   }

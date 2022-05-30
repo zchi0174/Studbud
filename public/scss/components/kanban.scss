@@ -1,12 +1,15 @@
+//position kanban board
 #kanban {
     margin-top: -50px;
 }
 
+//display columns in rows
 .kanban-board {
     display: flex;
     flex-direction: row;
 }
 
+//style tasks
 .kanban-block, .kanban-data {
     padding: 0.6rem;
     width: 30.5%;
@@ -33,13 +36,14 @@
 // background-color: rgb(33, 37, 83, 0.8);
 // /* display: none; */
 // }
-  
+
+//kanban column labels
 #kanban h3 {
     margin: 5px;
     text-align: center;
 }
 
-/* the grid template columns the available space for however many columns there are. the minmax means columns have a minimum of 200px and maximum of the available width divided by however many columns there are. */
+//auto fit columns in row and moves onto next row when there's no more space
 .kanban-board {
     display: grid; 
     justify-items: center; //center columns
@@ -47,14 +51,14 @@
     width: 55vw; 
 }
 
-
+//style column name input
 #kanban input {
     color: white;
     text-align: center;
     text-transform: uppercase;
 }
 
-// Change placeholder colour to white
+//change placeholder colour to white
 .kanban-block::placeholder {
     color: white;
     opacity: 1;
@@ -68,7 +72,7 @@
     color: white;
   }
 
-// Alternate column colours
+//alternate column colours
 .kanban-container:nth-child(3n+1) .kanban-block {
     background-color: rgb(134, 26, 83, 0.8);
 }

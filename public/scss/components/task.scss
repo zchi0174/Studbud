@@ -38,16 +38,19 @@ table.tasklist tr > td:last-child {
     gap: 5px;
 }
 
+//deletes extra border in bottom row
 table.tasklist tr:last-child > td {
-    border-bottom: none; //deletes extra border in bottom row
+    border-bottom: none; 
     }
 
+//deletes extra right border in last column of header
 table.tasklist th:last-child {
-    border-right: none; //deletes extra right border in last column of header
+    border-right: none; 
     }
 
+//deletes extra right border in last column of each row
 table.tasklist td:last-child {
-    border-right: none; //deletes extra right border in last column of each row
+    border-right: none; 
     }
 
 //reset button style
@@ -70,6 +73,7 @@ table.tasklist td:last-child {
 //     cursor: pointer; //curser becomes pointer on hover to show that button is clickable
 //     }
 
+//style submit button
 #submitButton {
     background: none;
     color: white;
@@ -80,6 +84,7 @@ table.tasklist td:last-child {
     cursor: pointer; //curser becomes pointer on hover to show that button is clickable
     }
 
+//style add task button
 #addButton {
     background: none;
     color: white;
@@ -92,6 +97,7 @@ table.tasklist td:last-child {
     margin: 10px auto;
     }
 
+//style task input table
 #tasklist {
     text-align: center;
     background-color: rgb(33, 37, 83, 0.8);
@@ -100,11 +106,12 @@ table.tasklist td:last-child {
     padding: 10px 0;
 }
 
+//remove bullet points in list
 #tasklist * {
-    list-style: none; //gets rid of bullet points in list
+    list-style: none; 
 }
 
-// display list of entered tasks in rows 
+//display list of entered tasks in rows 
 #tasklist ul {
     display: flex;
     flex-direction: row;
@@ -112,13 +119,13 @@ table.tasklist td:last-child {
     flex-wrap: wrap; //move new task to next row when there's no space in row
 }
 
-// position delete button in top right corner of task
+//position delete button in top right corner of task
 #tasklist ul * {
     display: flex;
     flex-direction: row;
 }
 
-// style task boxes
+//style task boxes
 #tasklist ul p {
     background-color: rgb(221, 36, 117, 0.4);
     padding: 10px 20px;
@@ -126,7 +133,7 @@ table.tasklist td:last-child {
     border: 3px solid white;
 }
 
-// delete task button
+//delete task button
 #tasklist ul button {
     background: none;
     color: white;
@@ -136,6 +143,7 @@ table.tasklist td:last-child {
     cursor: pointer;
 }
 
+//position empty list 
 #emptyList {
     margin-top: 30px;
 }
